@@ -1,1 +1,16 @@
-1
+You're right not to use Remove/Discard:
+Remove = remove the file from disk and stop tracking it in the repo from next commit
+Discard = discard your current uncommitted changes
+If you want to return the file to a previous state, there are a number of ways to do this.
+Option 1:
+Right-click the file (in any view) and pick 'Log Selected'. This gives you a history just of that file.
+Pick the commit in the list which represents the state at which you want the file to be returned to. So this would be the commit *before* the changes you wanted to reverse
+Right-click this commit and select "Reset To Commit"
+Note, you can also do this in the main log view (right-click the file in a commit and pick "Reset To Commit", but it's easier to find the commit you want when you use the file-specific log.
+Option 2:
+You can Reverse file changes made to a file in a commit, undoing them in your working copy. This is more selective than resetting the entire file back to a previous point.
+Pick a commit in the log view
+Select the file in that commit whose changes you want to reverse
+Use the 'Reverse File' button at the top to reverse all the file changes, or use 'Reverse Hunk' or 'Reverse Selected Lines' to undo just portions of that change.
+These changes will appear in your working copy ready to be tested/committed
+The 'Reverse' buttons are available in the Log Selected single-file window too. Please note that this 'Reverse' feature actually applies an 'inverse patch' to your working copy, so although in theory you can reverse any previous change at any level of detail, the more the file has changed content since the commit you're trying to reverse, the more chance the patch won't apply any more and you'll have to back the changes out manually instead, or use the more severe Option 1).
